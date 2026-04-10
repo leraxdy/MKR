@@ -37,3 +37,26 @@ def filter_text_file(input_file: str, output_file: str, keyword: str) -> int:
     filtered_lines = filter_lines(lines, keyword)
     write_file(output_file, filtered_lines)
     return len(filtered_lines)
+
+
+def main():
+    """Command line interface for the text filter."""
+    import sys
+
+    if len(sys.argv) != 4:
+        print("Usage: python text_filter.py <input_file> <output_file> <keyword>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+    keyword = sys.argv[3]
+
+    try:
+        count = filter_text_file(input_file, output_file, keyword)
+        print(f"Successfully filtered {count} lines to {output_file}")
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
