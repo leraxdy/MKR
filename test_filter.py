@@ -16,3 +16,9 @@ def read_file(file_path: str) -> List[str]:
         raise IOError(f"Cannot read file {file_path}: {e}")
 
 
+def filter_lines(lines: List[str], keyword: str) -> List[str]:
+    """Filter lines that contain a specific keyword."""
+    if not keyword:
+        return []
+
+    return [line for line in lines if keyword in line]
