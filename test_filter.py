@@ -22,3 +22,11 @@ def filter_lines(lines: List[str], keyword: str) -> List[str]:
         return []
 
     return [line for line in lines if keyword in line]
+
+def write_file(file_path: str, lines: List[str]) -> None:
+    """Write lines to a text file."""
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.writelines(lines)
+    except IOError as e:
+        raise IOError(f"Cannot write to file {file_path}: {e}")
