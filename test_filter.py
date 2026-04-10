@@ -30,3 +30,10 @@ def write_file(file_path: str, lines: List[str]) -> None:
             file.writelines(lines)
     except IOError as e:
         raise IOError(f"Cannot write to file {file_path}: {e}")
+
+def filter_text_file(input_file: str, output_file: str, keyword: str) -> int:
+    """Main function to filter text file by keyword."""
+    lines = read_file(input_file)
+    filtered_lines = filter_lines(lines, keyword)
+    write_file(output_file, filtered_lines)
+    return len(filtered_lines)
