@@ -1,6 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 import pytest
-import os
 import tempfile
 from text_filter import (
     read_file,
